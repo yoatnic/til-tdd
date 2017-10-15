@@ -1,0 +1,29 @@
+{
+  "name": "wcpd",
+  "version": "0.0.1",
+  "description": "",
+  "main": "sum.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^4.0.1",
+    "power-assert": "^1.4.4"
+  },
+  "scripts": {
+    "test": "$(npm bin)/mocha --require intelli-espower-loader"
+  },
+  "directories": {
+    "test": "test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoatnic/wcpd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoatnic/wcpd/issues"
+  },
+  "homepage": "https://github.com/yoatnic/wcpd#readme"
+}
