@@ -1,1 +1,3 @@
-# wcpd
+# til-tdd
+
+Read Test-Driven Development
