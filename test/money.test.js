@@ -6,10 +6,8 @@ const Dollar = require('../src/Dollar');
 describe('MoneyTest', () => {
     it('multiplcation', () => {
         const five = new Dollar(5);
-        let product = five.times(2);
-        assert(product.amount === 10);
-        product = five.times(3);
-        assert(product.amount == 15);
+        assert(new Dollar(10).equals(five.times(2)));
+        assert(new Dollar(15).equals(five.times(3)));
     });
 
     it('equality', () => {
