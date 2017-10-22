@@ -16,6 +16,7 @@ describe('MoneyTest', () => {
         assert(new Dollar(5).equals(new Dollar(6)) === false);
         assert(new Franc(5).equals(new Franc(5)));
         assert(new Franc(5).equals(new Franc(6)) === false);
+        assert(new Dollar(5).equals(new Franc(5)) === false);
     });
 
     it('franc multiplcation', () => {
