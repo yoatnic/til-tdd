@@ -1,28 +1,31 @@
 'use strict';
 
 const assert = require('power-assert');
-const MoneyFactory = require('../src/MoneyFactory');
-const Dollar = require('../src/Dollar');
-const Franc = require('../src/Franc');
+const {Money} = require('../src/Money');
 
 describe('MoneyTest', () => {
     it('multiplcation', () => {
-        const five = MoneyFactory.dollar(5);
-        assert(MoneyFactory.dollar(10).equals(five.times(2)));
-        assert(MoneyFactory.dollar(15).equals(five.times(3)));
+        const five = Money.dollar(5);
+        assert(Money.dollar(10).equals(five.times(2)));
+        assert(Money.dollar(15).equals(five.times(3)));
     });
 
     it('equality', () => {
-        assert(MoneyFactory.dollar(5).equals(MoneyFactory.dollar(5)));
-        assert(MoneyFactory.dollar(5).equals(MoneyFactory.dollar(6)) === false);
-        assert(MoneyFactory.franc(5).equals(MoneyFactory.franc(5)));
-        assert(MoneyFactory.franc(5).equals(MoneyFactory.franc(6)) === false);
-        assert(MoneyFactory.dollar(5).equals(MoneyFactory.franc(5)) === false);
+        assert(Money.dollar(5).equals(Money.dollar(5)));
+        assert(Money.dollar(5).equals(Money.dollar(6)) === false);
+        assert(Money.franc(5).equals(Money.franc(5)));
+        assert(Money.franc(5).equals(Money.franc(6)) === false);
+        assert(Money.dollar(5).equals(Money.franc(5)) === false);
     });
 
     it('franc multiplcation', () => {
-        const five = MoneyFactory.franc(5);
-        assert(MoneyFactory.franc(10).equals(five.times(2)));
-        assert(MoneyFactory.franc(15).equals(five.times(3)));
+        const five = Money.franc(5);
+        assert(Money.franc(10).equals(five.times(2)));
+        assert(Money.franc(15).equals(five.times(3)));
+    });
+
+    it('currency', () => {
+        assert("USD" === Money.dollar(1).currency());
+        assert("CHF" === Money.franc(1).currency());
     });
 });
