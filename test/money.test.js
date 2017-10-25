@@ -2,6 +2,7 @@
 
 const assert = require('power-assert');
 const {Money} = require('../src/Money');
+const {Franc} = require('../src/Franc');
 
 describe('MoneyTest', () => {
     it('multiplcation', () => {
@@ -27,5 +28,9 @@ describe('MoneyTest', () => {
     it('currency', () => {
         assert("USD" === Money.dollar(1).currency());
         assert("CHF" === Money.franc(1).currency());
+    });
+
+    it('differnt class equality', () => {
+        assert(new Money(10, 'CHF').equals(new Franc(10, 'CHF')));
     });
 });

@@ -9,7 +9,11 @@ class Money {
 
     equals(money) {
         return this._amount === money._amount &&
-            this.constructor.name === money.constructor.name;
+            this.currency() === money.currency();
+    }
+
+    times(multiplier) {
+        return new Money(this._amount * multiplier, this._currency);
     }
 
     currency() {
