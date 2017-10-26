@@ -1,6 +1,3 @@
-let Franc;
-let Dollar;
-
 class Money {
     constructor(amount, currency) {
         this._amount = amount;
@@ -21,14 +18,12 @@ class Money {
     }
 
     static dollar(amount) {
-        return new Dollar(amount, 'USD');
+        return new Money(amount, 'USD');
     }
 
     static franc(amount) {
-        return new Franc(amount, 'CHF');
+        return new Money(amount, 'CHF');
     }
 }
 
 exports.Money = Money;
-Franc = require('./Franc').Franc;
-Dollar = require('./Dollar').Dollar;
