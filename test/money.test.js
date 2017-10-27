@@ -2,6 +2,7 @@
 
 const assert = require('power-assert');
 const {Money} = require('../src/Money');
+const {Bank} = require('../src/Bank');
 
 describe('MoneyTest', () => {
     it('multiplcation', () => {
@@ -19,5 +20,13 @@ describe('MoneyTest', () => {
     it('currency', () => {
         assert("USD" === Money.dollar(1).currency());
         assert("CHF" === Money.franc(1).currency());
+    });
+
+    it('simple addtion', () => {
+        const five = Money.dollar(5);
+        const sum = five.plus(five);
+        const bank = new Bank();
+        const reduced = bank.reduce(sum, 'USD');
+        assert(Money.dollar(10).equals(reduced));
     });
 });

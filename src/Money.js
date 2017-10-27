@@ -1,20 +1,28 @@
+const {Expression} = require('./Expression');
+
 class Money {
     constructor(amount, currency) {
-        this._amount = amount;
+        this.amount = amount;
         this._currency = currency;
     }
 
     equals(money) {
-        return this._amount === money._amount &&
+        return this.amount === money.amount &&
             this.currency() === money.currency();
     }
 
     times(multiplier) {
-        return new Money(this._amount * multiplier, this._currency);
+        return new Money(this.amount * multiplier, this._currency);
     }
 
     currency() {
         return this._currency;
+    }
+
+    plus(added) {
+        return Object.assign(new Expression(),
+            new Money(this.amount + added.amount, this._currency)
+        );
     }
 
     static dollar(amount) {
