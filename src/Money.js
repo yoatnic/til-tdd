@@ -23,6 +23,10 @@ class Money {
         return new Sum(this, addend);
     }
 
+    reduce(to) {
+        return this;
+    }
+
     static dollar(amount) {
         return new Money(amount, 'USD');
     }

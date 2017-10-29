@@ -44,4 +44,10 @@ describe('MoneyTest', () => {
         const result = bank.reduce(sum, 'USD');
         assert(Money.dollar(7).equals(result));
     });
+
+    it('reduce Money', () => {
+        const bank = new Bank();
+        const result = bank.reduce(Money.dollar(1), 'USD');
+        assert(Money.dollar(1).equals(result));
+    });
 });
