@@ -61,4 +61,13 @@ describe('MoneyTest', () => {
     it('identity rate', () => {
         assert(1 === new Bank().rate('USD', 'USD'));
     });
+
+    it('mixed addition', () => {
+        const fiveBucks = Money.dollar(5);
+        const tenFrancs = Money.franc(10);
+        const bank = new Bank();
+        bank.addRate('CHF', 'USD', 2);
+        const result = bank.reduce(fiveBucks.plus(tenFrancs), 'USD');
+        assert(Money.dollar(10).equals(result));
+    });
 });
